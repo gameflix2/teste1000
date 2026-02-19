@@ -2,16 +2,16 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Gameflix Mobile Pro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gameflix Desktop Pro</title>
 
 <style>
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 body,html{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#000;color:#fff;height:100%;overflow-x:hidden}
 
 /* ================= PARALLAX ================= */
 .scene{position:fixed;inset:0;perspective:1600px;overflow:hidden;z-index:0}
-.grid{position:absolute;width:400%;height:400%;top:-150%;left:-150%;background-image:url("paralax.png");background-size:420px auto;background-repeat:repeat;transform: rotateX(20deg) rotateY(-15deg) translateZ(0);animation: moveGrid 80s linear infinite;filter:brightness(.75)}
+.grid{position:absolute;width:400%;height:400%;top:-150%;left:-150%;background-image:url("https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/paralax.png");background-size:420px auto;background-repeat:repeat;transform: rotateX(20deg) rotateY(-15deg) translateZ(0);animation: moveGrid 80s linear infinite;filter:brightness(.75)}
 .grid.back{transform: rotateX(20deg) rotateY(-15deg) translateZ(-300px);filter: blur(6px) brightness(.45);animation-duration:120s}
 .grid.mid{transform: rotateX(20deg) rotateY(-15deg) translateZ(-120px);filter: blur(2px) brightness(.65);animation-duration:100s}
 .grid.front{transform: rotateX(20deg) rotateY(-15deg) translateZ(0);animation-duration:80s}
@@ -21,33 +21,33 @@ body,html{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#00
 .overlay{position:absolute;inset:0;background:radial-gradient(circle at center, transparent 30%, black 85%),linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.95))}
 
 /* ================= HERO ================= */
-.hero{position:relative;z-index:2;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:25px}
-.logo{color:#e50914;font-size:1.8rem;font-weight:900;position:absolute;top:25px;left:25px;letter-spacing:-1.5px}
-.hero-content{text-align:center}
-h1{font-size:2.1rem;margin-bottom:8px;font-weight:800;line-height:1.1}
-p{font-size:1.1rem;color:#e6e6e6;margin-bottom:35px}
-.email-form{display:flex;flex-direction:column;gap:14px;width:100%;max-width:350px;margin:0 auto}
-.email-form input{padding:20px;border:1px solid #444;background:rgba(0,0,0,.85);color:#fff;border-radius:4px;font-size:1.1rem;transition:.3s}
+.hero{position:relative;z-index:2;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:50px}
+.logo{color:#e50914;font-size:2rem;font-weight:900;position:absolute;top:25px;left:25px;letter-spacing:-1.5px}
+.hero-content{text-align:center;max-width:700px;margin:0 auto}
+h1{font-size:2.5rem;margin-bottom:10px;font-weight:800;line-height:1.2}
+p{font-size:1.2rem;color:#e6e6e6;margin-bottom:40px}
+.email-form{display:flex;gap:14px;width:100%;max-width:450px;margin:0 auto}
+.email-form input{flex:1;padding:18px;border:1px solid #444;background:rgba(0,0,0,.85);color:#fff;border-radius:4px;font-size:1.1rem;transition:.3s}
 .email-form input:focus{border-color:#e50914;box-shadow:0 0 5px rgba(229,9,20,.5)}
-.btn-cta{background:#e50914;color:#fff;padding:18px;font-size:1.2rem;border:none;border-radius:4px;font-weight:bold;display:flex;align-items:center;justify-content:center;min-height:60px;cursor:pointer}
+.btn-cta{background:#e50914;color:#fff;padding:0 25px;font-size:1.2rem;border:none;border-radius:4px;font-weight:bold;display:flex;align-items:center;justify-content:center;min-height:60px;cursor:pointer}
 .spinner{display:none;width:24px;height:24px;border:3px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;animation:spin .8s linear infinite;margin-left:15px}
 @keyframes spin{to{transform:rotate(360deg)}}
 #msgErro{color:#ffa00a;font-size:.9rem;margin-top:15px;display:none;font-weight:600}
 
 /* ================= TOP 10 ================= */
-.top-10{padding:30px 20px;background:#111;color:#fff;position:relative;z-index:2}
-.top-10 h2{font-size:1.8rem;color:#e50914;margin-bottom:15px}
-.top-10 ul{list-style:none;display:flex;flex-wrap:wrap;gap:15px;justify-content:center}
-.top-10 li{width:calc(20% - 12px);min-width:140px;position:relative;cursor:pointer;transition:transform .3s}
+.top-10{padding:50px 20px;background:#111;color:#fff;position:relative;z-index:2}
+.top-10 h2{font-size:2rem;color:#e50914;margin-bottom:25px;text-align:center}
+.top-10 ul{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;justify-items:center}
+.top-10 li{width:100%;position:relative;cursor:pointer;transition:transform .3s}
 .top-10 li:hover{transform:scale(1.05)}
 .top-10 button{border:none;background:none;color:#fff;text-align:left;width:100%;display:block}
 .top-10 .default-ltr-iqcdef-cache-3xjlkv{position:relative;padding-top:140%;overflow:hidden;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.5)}
 .top-10 .default-ltr-iqcdef-cache-cf8xw5{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .3s}
 .top-10 li:hover .default-ltr-iqcdef-cache-cf8xw5{transform:scale(1.1)}
-.top-10 span{display:block;margin-top:5px;font-weight:bold;text-align:center;font-size:0.95rem}
+.top-10 span{display:block;margin-top:8px;font-weight:bold;text-align:center;font-size:1rem}
+
 </style>
 </head>
-
 <body>
 
 <!-- PARALLAX -->
@@ -62,11 +62,9 @@ p{font-size:1.1rem;color:#e6e6e6;margin-bottom:35px}
 <!-- HERO -->
 <section class="hero">
   <div class="logo">GAMEFLIX</div>
-
   <div class="hero-content">
     <h1>Filipe vou ter que te pedir a casa.</h1>
-    <p>Entre com seu acesso exclusivo para teste gratis.</p>
-
+    <p>Entre com seu acesso exclusivo para teste grátis.</p>
     <form class="email-form" id="loginForm">
       <input type="email" id="userLogin" placeholder="Seu login (@testegratis...)" required>
       <button type="submit" id="btnSubmit" class="btn-cta">
@@ -74,7 +72,6 @@ p{font-size:1.1rem;color:#e6e6e6;margin-bottom:35px}
         <div class="spinner" id="loader"></div>
       </button>
     </form>
-
     <div id="msgErro">Login incorreto. Verifique e tente novamente.</div>
   </div>
 </section>
@@ -83,86 +80,16 @@ p{font-size:1.1rem;color:#e6e6e6;margin-bottom:35px}
 <section class="top-10">
   <h2>Em Alta</h2>
   <ul>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://wallpapers.com/images/hd/4k-gta-5-trevor-franklin-michael-phone-background-2j8q69ifvd63gz9c.jpg)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-j7nu   </div>
-        <span>1. Grand Theft Auto V </span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>2. RedDead Redemption 2j 
-j7nu     </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABV5g7uTVbKHB3sRQTS1NxRFcV7Micj3-RYGICs25wjH7wVBJicgX5_pbTN3YYPXCLoL4w5EZRGcbGgHWu_TVkWuoIYMLXThrcn0qcw7UR6OEJG6luGdmSIGtWLfvd0vx-UDy.webp?r=969)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>3. O Agente Noturno</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWdNd_bI5faFNXnGcoF9VvybF2tDIYVMj7FVbivqthyP4PfbxFGpVat_67jqtlfjH8sfHA5u_Hnu9vBuVpWVw0yPFIOGS35IaAXuLOeAeSY58prfbhMqlGkBW2pU6NPLvQXm.webp?r=198)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>4. Salve Geral: Irmandade</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZXw0A4QaiXKhiY4NNis4NKY2vdseFVcCPUTXLoVF3IU27c0CeLO0IidCZm0nBLUj0_UHBwASYQUhL3HxKAQ4jjjtfyk_TILLOI.webp?r=b73)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>5. The Vampire Diaries</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABXMlNt8lRlEH5nkoYUHkzaYFsKJJvQq-3wQ4-DyYWQmKlxu9qrynyD5cNZEHPowiQL9IPEPbTSBM9B-id8nR8QPVfL1P_CQjPOqe5ZsDbekwH5AVJbhS3v4gSBXhZb4qdcE6.webp?r=e8a)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>6. Stranger Things</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWRvNTh0TlZGIkbfxbRjlplOxDincgNHno5N9R3I6NeA_KZN9HYeYzNsd1oG65iE8oNZ3G37rXYloHlxW169M-oTQnmw3cRUVoI.webp?r=5d1)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>7. Rebelde</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABVRSzopcnWvGRH4oLxzNrVzOnPXiv2GMV4VBHBAaykdpp6MSHl8iCmd_jyr-cYSqDpJcsOptou-3sKW98qaIiy9_Ov5RUyPv9LZZ4jrz-VoTm2DgWHSgWh2yCjDvOHG8cCKc.webp?r=6cf)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>8. Dinheiro Suspeito</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYh6eys0YgExX5RSR-P9UppYuIhlpDDBO_yjb42qZw8YUFjfD9O5AHPsrKMpUE3px5TxSyksKM__j-OiA7_ItV81KRYm6sCqVFw9IDpwbyHJtdWuftiUIYjTq8O387kh_9vU.webp?r=6a4)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>9. Os Donos do Jogo</span>
-      </button>
-    </li>
-    <li>
-      <button>
-        <div class="default-ltr-iqcdef-cache-3xjlkv">
-          <span style="background-image:url(https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABROL8kOybOWtPXY2Lt-AhfbepN6-CcML1nFmc_N7jGawQ56BC1S0zwBjWygmf50vrzKtnW-T1sxirHCce93X5hcLl9_heYulBCE.webp?r=08d)" class="default-ltr-iqcdef-cache-cf8xw5"></span>
-        </div>
-        <span>10. The Good Doctor: O Bom Doutor</span>
-      </button>
-    </li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://wallpapers.com/images/hd/4k-gta-5-trevor-franklin-michael-phone-background-2j8q69ifvd63gz9c.jpg')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>1. Grand Theft Auto V</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>2. RedDead Redemption 2</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABV5g7uTVbKHB3sRQTS1NxRFcV7Micj3-RYGICs25wjH7wVBJicgX5_pbTN3YYPXCLoL4w5EZRGcbGgHWu_TVkWuoIYMLXThrcn0qcw7UR6OEJG6luGdmSIGtWLfvd0vx-UDy.webp?r=969')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>3. O Agente Noturno</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWdNd_bI5faFNXnGcoF9VvybF2tDIYVMj7FVbivqthyP4PfbxFGpVat_67jqtlfjH8sfHA5u_Hnu9vBuVpWVw0yPFIOGS35IaAXuLOeAeSY58prfbhMqlGkBW2pU6NPLvQXm.webp?r=198')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>4. Salve Geral: Irmandade</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZXw0A4QaiXKhiY4NNis4NKY2vdseFVcCPUTXLoVF3IU27c0CeLO0IidCZm0nBLUj0_UHBwASYQUhL3HxKAQ4jjjtfyk_TILLOI.webp?r=b73')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>5. The Vampire Diaries</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABXMlNt8lRlEH5nkoYUHkzaYFsKJJvQq-3wQ4-DyYWQmKlxu9qrynyD5cNZEHPowiQL9IPEPbTSBM9B-id8nR8QPVfL1P_CQjPOqe5ZsDbekwH5AVJbhS3v4gSBXhZb4qdcE6.webp?r=e8a')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>6. Stranger Things</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWRvNTh0TlZGIkbfxbRjlplOxDincgNHno5N9R3I6NeA_KZN9HYeYzNsd1oG65iE8oNZ3G37rXYloHlxW169M-oTQnmw3cRUVoI.webp?r=5d1')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>7. Rebelde</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABVRSzopcnWvGRH4oLxzNrVzOnPXiv2GMV4VBHBAaykdpp6MSHl8iCmd_jyr-cYSqDpJcsOptou-3sKW98qaIiy9_Ov5RUyPv9LZZ4jrz-VoTm2DgWHSgWh2yCjDvOHG8cCKc.webp?r=6cf')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>8. Dinheiro Suspeito</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYh6eys0YgExX5RSR-P9UppYuIhlpDDBO_yjb42qZw8YUFjfD9O5AHPsrKMpUE3px5TxSyksKM__j-OiA7_ItV81KRYm6sCqVFw9IDpwbyHJtdWuftiUIYjTq8O387kh_9vU.webp?r=6a4')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>9. Os Donos do Jogo</span></button></li>
+    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABROL8kOybOWtPXY2Lt-AhfbepN6-CcML1nFmc_N7jGawQ56BC1S0zwBjWygmf50vrzKtnW-T1sxirHCce93X5hcLl9_heYulBCE.webp?r=08d')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>10. The Good Doctor: O Bom Doutor</span></button></li>
   </ul>
 </section>
 
@@ -182,11 +109,8 @@ document.getElementById('loginForm').addEventListener('submit', function(e){
     btnText.innerText="CONECTANDO";
     loader.style.display="inline-block";
 
-    setTimeout(()=>{
-      window.location.href="proxima_pagina.html";
-    },2000);
-
-  }else{
+    setTimeout(()=>{ window.location.href="proxima_pagina.html"; },2000);
+  } else {
     input.classList.add('shake-input');
     erroDisplay.style.display="block";
     setTimeout(()=>input.classList.remove('shake-input'),500);
