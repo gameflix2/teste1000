@@ -1,124 +1,360 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gameflix Desktop Pro</title>
-
+<title>Inicio - Gameflix    </title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
-body,html{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#000;color:#fff;height:100%;overflow-x:hidden}
+:root {
+  --netflix-red: #e50914;
+  --bg-dark: #141414;
+  --text-gray: #a3a3a3;
+}
 
-/* ================= PARALLAX ================= */
-.scene{position:fixed;inset:0;perspective:1600px;overflow:hidden;z-index:0}
-.grid{position:absolute;width:400%;height:400%;top:-150%;left:-150%;background-image:url("https://raw.githubusercontent.com/SEU-USUARIO/SEU-REPO/main/paralax.png");background-size:420px auto;background-repeat:repeat;transform: rotateX(20deg) rotateY(-15deg) translateZ(0);animation: moveGrid 80s linear infinite;filter:brightness(.75)}
-.grid.back{transform: rotateX(20deg) rotateY(-15deg) translateZ(-300px);filter: blur(6px) brightness(.45);animation-duration:120s}
-.grid.mid{transform: rotateX(20deg) rotateY(-15deg) translateZ(-120px);filter: blur(2px) brightness(.65);animation-duration:100s}
-.grid.front{transform: rotateX(20deg) rotateY(-15deg) translateZ(0);animation-duration:80s}
-@keyframes moveGrid{from{transform: rotateX(20deg) rotateY(-15deg) translate3d(0,0,0)}to{transform: rotateX(20deg) rotateY(-15deg) translate3d(-1200px,-600px,0)}}
-.light{position:absolute;inset:0;background:radial-gradient(circle at 30% 40%, rgba(255,255,255,.08), transparent 40%),radial-gradient(circle at 70% 60%, rgba(255,255,255,.05), transparent 45%);animation: lightMove 25s linear infinite alternate}
-@keyframes lightMove{from{transform: translateX(-60%)}to{transform: translateX(6%)}}
-.overlay{position:absolute;inset:0;background:radial-gradient(circle at center, transparent 30%, black 85%),linear-gradient(to bottom, rgba(0,0,0,.6), rgba(0,0,0,.95))}
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: #fff;
+  overflow-x: hidden;
+}
 
-/* ================= HERO ================= */
-.hero{position:relative;z-index:2;height:100vh;display:flex;flex-direction:column;justify-content:center;padding:50px}
-.logo{color:#e50914;font-size:2rem;font-weight:900;position:absolute;top:25px;left:25px;letter-spacing:-1.5px}
-.hero-content{text-align:center;max-width:700px;margin:0 auto}
-h1{font-size:2.5rem;margin-bottom:10px;font-weight:800;line-height:1.2}
-p{font-size:1.2rem;color:#e6e6e6;margin-bottom:40px}
-.email-form{display:flex;gap:14px;width:100%;max-width:450px;margin:0 auto}
-.email-form input{flex:1;padding:18px;border:1px solid #444;background:rgba(0,0,0,.85);color:#fff;border-radius:4px;font-size:1.1rem;transition:.3s}
-.email-form input:focus{border-color:#e50914;box-shadow:0 0 5px rgba(229,9,20,.5)}
-.btn-cta{background:#e50914;color:#fff;padding:0 25px;font-size:1.2rem;border:none;border-radius:4px;font-weight:bold;display:flex;align-items:center;justify-content:center;min-height:60px;cursor:pointer}
-.spinner{display:none;width:24px;height:24px;border:3px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;animation:spin .8s linear infinite;margin-left:15px}
-@keyframes spin{to{transform:rotate(360deg)}}
-#msgErro{color:#ffa00a;font-size:.9rem;margin-top:15px;display:none;font-weight:600}
+/* --- HEADER --- */
+.pinning-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent);
+  transition: background 0.3s;
+}
 
-/* ================= TOP 10 ================= */
-.top-10{padding:50px 20px;background:#111;color:#fff;position:relative;z-index:2}
-.top-10 h2{font-size:2rem;color:#e50914;margin-bottom:25px;text-align:center}
-.top-10 ul{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:20px;justify-items:center}
-.top-10 li{width:100%;position:relative;cursor:pointer;transition:transform .3s}
-.top-10 li:hover{transform:scale(1.05)}
-.top-10 button{border:none;background:none;color:#fff;text-align:left;width:100%;display:block}
-.top-10 .default-ltr-iqcdef-cache-3xjlkv{position:relative;padding-top:140%;overflow:hidden;border-radius:6px;box-shadow:0 0 8px rgba(0,0,0,.5)}
-.top-10 .default-ltr-iqcdef-cache-cf8xw5{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform .3s}
-.top-10 li:hover .default-ltr-iqcdef-cache-cf8xw5{transform:scale(1.1)}
-.top-10 span{display:block;margin-top:8px;font-weight:bold;text-align:center;font-size:1rem}
+.main-header {
+  display: flex;
+  align-items: center;
+  padding: 15px 4%;
+  gap: 20px;
+}
 
+.logo {
+  color: var(--netflix-red);
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: -1px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 18px;
+  padding: 0;
+  font-size: 14px;
+}
+
+.nav-links a {
+  color: #e5e5e5;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--text-gray); }
+
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-actions button {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.header-actions img.profile {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- BANNER --- */
+.banner {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 0 4%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.banner::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; width: 100%; height: 150px;
+  background: linear-gradient(to top, var(--bg-dark), transparent);
+}
+
+.banner-content {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.banner-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.banner-content p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+.btn-play {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.btn-info {
+  background: rgba(109, 109, 110, 0.7);
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* --- TOP 10 ROW --- */
+.row {
+  padding: 20px 4%;
+  margin-top: -50px;
+  position: relative;
+  z-index: 5;
+}
+
+.row h2 {
+  font-size: 1.4vw;
+  color: #e5e5e5;
+  margin-bottom: 10px;
+}
+
+.top-10-container {
+  position: relative;
+}
+
+.top-10-scroll {
+  display: flex;
+  gap: 45px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.top-10-scroll::-webkit-scrollbar { display: none; }
+
+.card-container {
+  position: relative;
+  min-width: 220px;
+  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
+.rank-number {
+  font-size: 240px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #000;
+  -webkit-text-stroke: 4px #5e5e5e;
+  position: absolute;
+  left: -20px;
+  bottom: -25px;
+  z-index: 1;
+}
+
+.poster-img {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  z-index: 2;
+  margin-left: 70px;
+  border-radius: 3px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.badge-new {
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  background-color: var(--netflix-red);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 2px;
+  z-index: 3;
+  text-transform: uppercase;
+}
+
+/* --- Setas de navegação --- */
+.arrow-left, .arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(20,20,20,0.7);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  width: 40px;
+  height: 60px;
+}
+.arrow-left { left: -20px; }
+.arrow-right { right: -20px; }
+
+@media(max-width:768px){
+  .banner-content h1 { font-size: 2rem; }
+  .banner-content p { font-size: 14px; }
+  .poster-img { width: 100px; height: 150px; margin-left: 50px; }
+  .rank-number { font-size: 120px; left: -10px; bottom: -15px; }
+}/* VIDEO BANNER — COLA AQUI */
+.banner-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.2));
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
 </style>
 </head>
 <body>
 
-<!-- PARALLAX -->
-<div class="scene">
-  <div class="grid back"></div>
-  <div class="grid mid"></div>
-  <div class="grid front"></div>
-  <div class="light"></div>
-  <div class="overlay"></div>
+<!-- HEADER -->
+<header class="pinning-header" id="header">
+  <div class="main-header">
+    <a href="#" class="logo">GAMEFLIX</a>
+    <ul class="nav-links">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">FPS</a></li>
+      <li><a href="#">RPG</a></li>
+      <li><a href="#">CORRIDA</a></li>
+      <li><a href="#">MEUS JOGOS</a></li>
+    </ul>
+    <div class="header-actions">
+      <button>🔍</button>
+      <button>🔔</button>
+      <button></button>
+      <img class="profile" src="https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABVB2PLirdQh_1yd9FQBW3HBGcUmWVlTDrUt5l1W_lqDJ33Sl-F6vY8O2X_URorArVYCkG0SnXjA6LXqHBLFVMg_DMtx19TA.png?r=cf8" alt="Perfil">
+    </div>
+  </div>
+</header>
+
+<!-- BANNER -->
+<section class="banner" id="main-banner">
+
+ <video class="banner-video" autoplay muted loop playsinline>
+  <source src="https://res.cloudinary.com/dlt1gqwnc/video/upload/v1771613996/farcry_z2rivm.mp4" type="video/mp4">
+</video>
+
+  <div class="banner-content">
+    <h1 id="banner-title">FarCry Primal</h1>
+    <p id="banner-desc">Jogo disponivel GRATIS para testar a plataforma</p>
+    <button class="btn-play">▶ DOWNLOAD GRATIS</button>
+    <button class="btn-info">ⓘ Mais informações</button>
+  </div>
+
+</section>
+
+<!-- TOP 10 -->
+<div class="row">
+  <h2>MAIS BAIXADOS GAMEFLIX</h2>
+  <div class="top-10-container">
+    <button class="arrow-left" onclick="scrollLeft()">‹</button>
+    <div class="top-10-scroll" id="top10">
+      
+      <div class="card-container" onclick="updateBanner('Fúria de Titãs 2', 'https://image.tmdb.org/t/p/original/69Uqt7vS68spTb9vYm79B3M94uY.jpg','Um épico cheio de ação e mitologia. Heróis enfrentam monstros e deuses em batalhas intensas.')">
+        <span class="rank-number">1</span>
+        <img src="https://image.tmdb.org/t/p/w500/vG39XN97LNoNqS8nE4qfRCOsYp.jpg" class="poster-img" alt="Filme 1">
+      </div>
+
+      <div class="card-container" onclick="updateBanner('Salve Geral / Irmandade', 'https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png','Crime e ação em um enredo envolvente de irmandade.')">
+        <span class="rank-number">2</span>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png" class="poster-img" alt="Filme 2">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+      <div class="card-container" onclick="updateBanner('A Cela dos Milagres', 'https://image.tmdb.org/t/p/original/4uY5zXfXN7f0j7x9p2n9XfX8X8x.jpg','Mistério e drama se unem nesta obra impactante.')">
+        <span class="rank-number">3</span>
+        <img src="https://image.tmdb.org/t/p/w500/brOatYQ0C24Bf9f8O9O8O8O8O8O.jpg" class="poster-img" alt="Filme 3">
+        <div class="badge-new">Novidade</div>
+      </div>
+
+    </div>
+    <button class="arrow-right" onclick="scrollRight()">›</button>
+  </div>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="logo">GAMEFLIX</div>
-  <div class="hero-content">
-    <h1> o Melhor site de Jogos para PC do BRASIL .</h1>
-    <p>Entre com seu acesso exclusivo para teste grátis.</p>
-    <form class="email-form" id="loginForm">
-      <input type="email" id="userLogin" placeholder="Seu login (@testegratis...)" required>
-      <button type="submit" id="btnSubmit" class="btn-cta">
-        <span id="btnText">VAMOS LÁ</span>
-        <div class="spinner" id="loader"></div>
-      </button>
-    </form>
-    <div id="msgErro">Login incorreto. Verifique e tente novamente.</div>
-  </div>
-</section>
-
-<!-- TOP 10 EM ALTA -->
-<section class="top-10">
-  <h2>Em Alta</h2>
-  <ul>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://wallpapers.com/images/hd/4k-gta-5-trevor-franklin-michael-phone-background-2j8q69ifvd63gz9c.jpg')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>1. Grand Theft Auto V</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://upload.wikimedia.org/wikipedia/pt/e/e7/Red_Dead_Redemption_2.png')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>2. RedDead Redemption 2</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABV5g7uTVbKHB3sRQTS1NxRFcV7Micj3-RYGICs25wjH7wVBJicgX5_pbTN3YYPXCLoL4w5EZRGcbGgHWu_TVkWuoIYMLXThrcn0qcw7UR6OEJG6luGdmSIGtWLfvd0vx-UDy.webp?r=969')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>3. O Agente Noturno</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWdNd_bI5faFNXnGcoF9VvybF2tDIYVMj7FVbivqthyP4PfbxFGpVat_67jqtlfjH8sfHA5u_Hnu9vBuVpWVw0yPFIOGS35IaAXuLOeAeSY58prfbhMqlGkBW2pU6NPLvQXm.webp?r=198')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>4. Salve Geral: Irmandade</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABZXw0A4QaiXKhiY4NNis4NKY2vdseFVcCPUTXLoVF3IU27c0CeLO0IidCZm0nBLUj0_UHBwASYQUhL3HxKAQ4jjjtfyk_TILLOI.webp?r=b73')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>5. The Vampire Diaries</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABXMlNt8lRlEH5nkoYUHkzaYFsKJJvQq-3wQ4-DyYWQmKlxu9qrynyD5cNZEHPowiQL9IPEPbTSBM9B-id8nR8QPVfL1P_CQjPOqe5ZsDbekwH5AVJbhS3v4gSBXhZb4qdcE6.webp?r=e8a')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>6. Stranger Things</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABWRvNTh0TlZGIkbfxbRjlplOxDincgNHno5N9R3I6NeA_KZN9HYeYzNsd1oG65iE8oNZ3G37rXYloHlxW169M-oTQnmw3cRUVoI.webp?r=5d1')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>7. Rebelde</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABVRSzopcnWvGRH4oLxzNrVzOnPXiv2GMV4VBHBAaykdpp6MSHl8iCmd_jyr-cYSqDpJcsOptou-3sKW98qaIiy9_Ov5RUyPv9LZZ4jrz-VoTm2DgWHSgWh2yCjDvOHG8cCKc.webp?r=6cf')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>8. Dinheiro Suspeito</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABYh6eys0YgExX5RSR-P9UppYuIhlpDDBO_yjb42qZw8YUFjfD9O5AHPsrKMpUE3px5TxSyksKM__j-OiA7_ItV81KRYm6sCqVFw9IDpwbyHJtdWuftiUIYjTq8O387kh_9vU.webp?r=6a4')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>9. Os Donos do Jogo</span></button></li>
-    <li><button><div class="default-ltr-iqcdef-cache-3xjlkv"><span style="background-image:url('https://occ-0-4929-185.1.nflxso.net/dnm/api/v6/mAcAr9TxZIVbINe88xb3Teg5_OA/AAAABROL8kOybOWtPXY2Lt-AhfbepN6-CcML1nFmc_N7jGawQ56BC1S0zwBjWygmf50vrzKtnW-T1sxirHCce93X5hcLl9_heYulBCE.webp?r=08d')" class="default-ltr-iqcdef-cache-cf8xw5"></span></div><span>10. The Good Doctor: O Bom Doutor</span></button></li>
-  </ul>
-</section>
-
 <script>
-document.getElementById('loginForm').addEventListener('submit', function(e){
-  e.preventDefault();
-  const input=document.getElementById('userLogin');
-  const loginDigitado=input.value;
-  const loginCorreto="@testegratisgameflix";
-  const btn=document.getElementById('btnSubmit');
-  const btnText=document.getElementById('btnText');
-  const loader=document.getElementById('loader');
-  const erroDisplay=document.getElementById('msgErro');
+function updateBanner(title,img,desc){
+  const banner = document.getElementById('main-banner');
+  const bannerTitle = document.getElementById('banner-title');
+  const bannerDesc = document.getElementById('banner-desc');
+  banner.style.backgroundImage = `linear-gradient(to right, rgba(0,0,0,0.8), transparent), url('${img}')`;
+  bannerTitle.textContent = title;
+  bannerDesc.textContent = desc;
+  window.scrollTo({top:0, behavior:'smooth'});
+}
 
-  if(loginDigitado===loginCorreto){
-    btn.disabled=true;
-    btnText.innerText="CONECTANDO";
-    loader.style.display="inline-block";
+const top10 = document.getElementById('top10');
+function scrollLeft(){ top10.scrollBy({left:-300, behavior:'smooth'}); }
+function scrollRight(){ top10.scrollBy({left:300, behavior:'smooth'}); }
 
-    setTimeout(()=>{ window.location.href="proxima_pagina.html"; },2000);
-  } else {
-    input.classList.add('shake-input');
-    erroDisplay.style.display="block";
-    setTimeout(()=>input.classList.remove('shake-input'),500);
-  }
+// Header scroll effect
+window.addEventListener('scroll', ()=>{
+  const header = document.getElementById('header');
+  if(window.scrollY>50) header.style.background = 'rgba(20,20,20,0.95)';
+  else header.style.background = 'linear-gradient(to bottom, rgba(0,0,0,0.7) 10%, transparent)';
 });
 </script>
 
 </body>
 </html>
-
-
